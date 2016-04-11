@@ -3,19 +3,19 @@
 % for the online prediction, make sure you have complied matcaffe
 
 clear
-addpath('caffe-for-cudnn-v2.5.48/matlab');
+addpath('/xxx/yyy/caffe/matlab');
 
 imgID = 2; % 1 or 2
 img = imread(['img' num2str(imgID) '.jpg']);
 img = imresize(img, [256 256]);
 online = 0; % whether extract features online or load pre-extracted features
 
-load('categories1000.mat');
+load('models/categories1000.mat');
 if online == 1
     % load the CAM model and extract features
 
-    net_weights = ['googlenet_imagenet/CAMmodels/imagenet_googleletCAM_train_iter_120000.caffemodel'];
-    net_model = 'googlenet_imagenet/deploy_googlenetCAM.prototxt'];
+    net_weights = ['models/imagenet_googleletCAM_train_iter_120000.caffemodel'];
+    net_model = 'models/deploy_googlenetCAM.prototxt'];
     net = caffe.Net(net_model, net_weights, 'test');    
     
     weights_LR = net.params('CAM_fc',1).get_data();% get the softmax layer of the network
