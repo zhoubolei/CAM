@@ -1,8 +1,10 @@
 # Sample code for the Class Activation Mapping
-We propose a simple technique to espose the implicit attention of Convolutional Neural Networks on the image. It highlights the most informative image regions relevant to the predicted class. You could get attention-based model instantly by tweaking your own CNN a little bit more.
+We propose a simple technique to espose the implicit attention of Convolutional Neural Networks on the image. It highlights the most informative image regions relevant to the predicted class. You could get attention-based model instantly by tweaking your own CNN a little bit more. The paper is published at [CVPR'16](http://arxiv.org/pdf/1512.04150.pdf).
 
+The framework of the Class Activation Mapping is as below:
 ![Framework](http://cnnlocalization.csail.mit.edu/framework.jpg)
 
+Some predicted class activation maps:
 ![Results](http://cnnlocalization.csail.mit.edu/example.jpg)
 
 ### Usage Instructions:
@@ -15,8 +17,6 @@ The demo video of what the CNN is looking is [here](https://www.youtube.com/watc
     B. Zhou, A. Khosla, A. Lapedriza, A. Oliva, and A. Torralba
     Learning Deep Features for Discriminative Localization.
     Computer Vision and Pattern Recognition (CVPR), 2016
-
-[PDF](http://arxiv.org/pdf/1512.04150.pdf)[Project Page](http://cnnlocalization.csail.mit.edu/)
 
 Contact [Bolei Zhou](http://people.csail.mit.edu/bzhou/) if you have questions.
     
