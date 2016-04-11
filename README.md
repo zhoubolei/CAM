@@ -7,6 +7,12 @@ The framework of the Class Activation Mapping is as below:
 Some predicted class activation maps:
 ![Results](http://cnnlocalization.csail.mit.edu/example.jpg)
 
+### Pre-trained models:
+* GoogLeNet-CAM model on ImageNet: ```models/deploy_googlenetCAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/imagenet_googleletCAM_train_iter_120000.caffemodel]
+* VGG16-CAM model on ImageNet: ```models/deploy_vgg16CAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/vgg16CAM_train_iter_90000.caffemodel]
+* GoogLeNet-CAM model on Places205: ```models/deploy_googlenetCAM_places205.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/places_googleletCAM_train_iter_120000.caffemodel]
+* AlexNet-CAM on Places205 (used in the [online demo](http://places.csail.mit.edu/demo.html)):```models/deploy_alexnetplusCAM_places205.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/alexnetplusCAM_places205.caffemodel]
+
 ### Usage Instructions:
 1. Install [caffe](https://github.com/BVLC/caffe), compile the matcaffe (matlab wrapper for caffe), and make sure you could run the prediction example code classification.m.
 2. In matlab, run demo.m.
@@ -17,6 +23,9 @@ The demo video of what the CNN is looking is [here](https://www.youtube.com/watc
     B. Zhou, A. Khosla, A. Lapedriza, A. Oliva, and A. Torralba
     Learning Deep Features for Discriminative Localization.
     Computer Vision and Pattern Recognition (CVPR), 2016
+
+### License:
+The pre-trained models and techniques could be used without constraints.
 
 Contact [Bolei Zhou](http://people.csail.mit.edu/bzhou/) if you have questions.
     
