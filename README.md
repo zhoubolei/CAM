@@ -3,6 +3,8 @@ We propose a simple technique to espose the implicit attention of Convolutional 
 
 ![Framework](http://cnnlocalization.csail.mit.edu/framework.jpg)
 
+![Results](http://cnnlocalization.csail.mit.edu/example.jpg)
+
 ### Usage Instructions:
 1. Install [caffe](https://github.com/BVLC/caffe), compile the matcaffe (matlab wrapper for caffe), and make sure you could run the prediction example code classification.m.
 2. In matlab, run demo.m.
@@ -13,7 +15,8 @@ The demo video of what the CNN is looking is [here](https://www.youtube.com/watc
     B. Zhou, A. Khosla, A. Lapedriza, A. Oliva, and A. Torralba
     Learning Deep Features for Discriminative Localization.
     Computer Vision and Pattern Recognition (CVPR), 2016
-    [PDF](http://arxiv.org/pdf/1512.04150.pdf)[Project Page](http://cnnlocalization.csail.mit.edu/)
+
+[PDF](http://arxiv.org/pdf/1512.04150.pdf)[Project Page](http://cnnlocalization.csail.mit.edu/)
 
 Contact [Bolei Zhou](http://people.csail.mit.edu/bzhou/) if you have questions.
     
