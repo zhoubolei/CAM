@@ -10,12 +10,12 @@ img = imread(['img' num2str(imgID) '.jpg']);
 img = imresize(img, [256 256]);
 online = 0; % whether extract features online or load pre-extracted features
 
-load('models/categories1000.mat');
+load('categories1000.mat');
 if online == 1
     % load the CAM model and extract features
 
     net_weights = ['models/imagenet_googleletCAM_train_iter_120000.caffemodel'];
-    net_model = 'models/deploy_googlenetCAM.prototxt'];
+    net_model = ['models/deploy_googlenetCAM.prototxt'];
     net = caffe.Net(net_model, net_weights, 'test');    
     
     weights_LR = net.params('CAM_fc',1).get_data();% get the softmax layer of the network
@@ -48,6 +48,7 @@ for j=1:topNum
     curCAMLarge = mergeTenCrop(curCAMmapLarge_crops);
     curHeatMap = imresize(im2double(curCAMLarge),[256 256]);
     curHeatMap = im2double(curHeatMap);
+
     curHeatMap = map2jpg(curHeatMap,[], 'jet');
     curHeatMap = im2double(img)*0.2+curHeatMap*0.7;
     curResult = [curResult ones(size(curHeatMap,1),8,3) curHeatMap];
@@ -59,3 +60,4 @@ figure,imshow(curResult);title(curPrediction)
 if online==1
     caffe.reset_all();
 end
+

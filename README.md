@@ -15,15 +15,35 @@ Some predicted class activation maps:
 
 ### Usage Instructions:
 1. Install [caffe](https://github.com/BVLC/caffe), compile the matcaffe (matlab wrapper for caffe), and make sure you could run the prediction example code classification.m.
-2. In matlab, run demo.m.
+2. Clone the code from Github:
+```
+git clone https://github.com/metalbubble/CAM.git
+cd CAM
+```
+3. Download the pretrained network
+```
+sh models/download.sh
+```
+4. Run the demo code to generate the heatmap: in matlab terminal, 
+```
+demo
+```
+5. Run the demo code to generate bounding boxes from the heatmap: in matlab terminal,
+```
+generate_bbox
+```
 
 The demo video of what the CNN is looking is [here](https://www.youtube.com/watch?v=fZvOy0VXWAI). The reimplementation in tensorflow is [here](https://github.com/jazzsaxmafia/Weakly_detector).
 
 ### Reference:
-    B. Zhou, A. Khosla, A. Lapedriza, A. Oliva, and A. Torralba
-    Learning Deep Features for Discriminative Localization.
-    Computer Vision and Pattern Recognition (CVPR), 2016
-
+```
+@inproceedings{zhou2016cvpr,
+    author    = {Zhou, Bolei and Khosla, Aditya and Lapedriza, Agata and Oliva, Aude and Torralba, Antonio},
+    title     = {Learning Deep Features for Discriminative Localization},
+    booktitle = {Computer Vision and Pattern Recognition (CVPR)},
+    year      = {2016},
+}
+```
 ### License:
 The pre-trained models and techniques could be used without constraints.
 
