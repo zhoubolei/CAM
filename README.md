@@ -14,21 +14,21 @@ Some predicted class activation maps:
 * AlexNet-CAM on Places205 (used in the [online demo](http://places.csail.mit.edu/demo.html)):```models/deploy_alexnetplusCAM_places205.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/alexnetplusCAM_places205.caffemodel]
 
 ### Usage Instructions:
-1. Install [caffe](https://github.com/BVLC/caffe), compile the matcaffe (matlab wrapper for caffe), and make sure you could run the prediction example code classification.m.
-2. Clone the code from Github:
+* Install [caffe](https://github.com/BVLC/caffe), compile the matcaffe (matlab wrapper for caffe), and make sure you could run the prediction example code classification.m.
+* Clone the code from Github:
 ```
 git clone https://github.com/metalbubble/CAM.git
 cd CAM
 ```
-3. Download the pretrained network
+* Download the pretrained network
 ```
 sh models/download.sh
 ```
-4. Run the demo code to generate the heatmap: in matlab terminal, 
+* Run the demo code to generate the heatmap: in matlab terminal, 
 ```
 demo
 ```
-5. Run the demo code to generate bounding boxes from the heatmap: in matlab terminal,
+* Run the demo code to generate bounding boxes from the heatmap: in matlab terminal,
 ```
 generate_bbox
 ```
@@ -40,8 +40,8 @@ The demo video of what the CNN is looking is [here](https://www.youtube.com/watc
 @inproceedings{zhou2016cvpr,
     author    = {Zhou, Bolei and Khosla, Aditya and Lapedriza, Agata and Oliva, Aude and Torralba, Antonio},
     title     = {Learning Deep Features for Discriminative Localization},
-    booktitle = {Computer Vision and Pattern Recognition (CVPR)},
-    year      = {2016},
+    booktitle = {Computer Vision and Pattern Recognition},
+    year      = {2016}
 }
 ```
 ### License:
