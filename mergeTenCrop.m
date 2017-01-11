@@ -1,17 +1,17 @@
 function alignImgMean = mergeTenCrop( CAMmap_crops)
 % align the ten crops of CAMmaps back to one image (take a look at caffe
 % matlab wrapper about how ten crops are generated)
-cropImgSet = zeros([256 256 3 10]);
+cropSize = size(CAMmap_crops,1);
+cropImgSet = zeros([cropSize cropSize 3 10]);
 cropImgSet(:,:,1,:) = CAMmap_crops;
 cropImgSet(:,:,2,:) = CAMmap_crops;
 cropImgSet(:,:,3,:) = CAMmap_crops;
 
     
 squareSize = 256;
-cropSize = size(cropImgSet,1);
 indices = [0 squareSize-cropSize] + 1;
 
-alignImgSet = zeros(256,256,size(cropImgSet,3),'single');
+alignImgSet = zeros(squareSize, squareSize, size(cropImgSet,3),'single');
 
 
 curr = 1;
@@ -35,7 +35,7 @@ curCrop2 = permute(cropImgSet(end:-1:1,:,:,10),[2 1 3 4]);
 alignImgSet(center:center+cropSize-1, center:center+cropSize-1,:,5) = curCrop1;
 alignImgSet(center:center+cropSize-1, center:center+cropSize-1,:, 10) = curCrop2;
 alignImgMean = squeeze(sum(sum(abs(alignImgSet),3),4));
-
+alignImgMean = im2double(alignImgMean);
 end
 
 

@@ -44,18 +44,17 @@ curPrediction = '';
 
 for j=1:topNum
     curCAMmap_crops = squeeze(curCAMmapAll(:,:,j,:));
-    curCAMmapLarge_crops = imresize(curCAMmap_crops,[256 256]);
-    curCAMLarge = mergeTenCrop(curCAMmapLarge_crops);
-    curHeatMap = imresize(im2double(curCAMLarge),[256 256]);
-    curHeatMap = im2double(curHeatMap);
+    curCAMmapLarge_crops = imresize(curCAMmap_crops,[224 224]);
+    curCAMmap_image = mergeTenCrop(curCAMmapLarge_crops);
 
-    curHeatMap = map2jpg(curHeatMap,[], 'jet');
+    curHeatMap = map2jpg(curCAMmap_image, [], 'jet');
     curHeatMap = im2double(img)*0.2+curHeatMap*0.7;
     curResult = [curResult ones(size(curHeatMap,1),8,3) curHeatMap];
     curPrediction = [curPrediction ' --top'  num2str(j) ':' categories{IDX_category(j)}];
     
 end
-figure,imshow(curResult);title(curPrediction)
+figure,imshow(curResult);
+title(curPrediction)
 
 if online==1
     caffe.reset_all();
