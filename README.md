@@ -34,7 +34,7 @@ demo
 generate_bbox
 ```
 
-The demo video of what the CNN is looking is [here](https://www.youtube.com/watch?v=fZvOy0VXWAI). The reimplementation in tensorflow is [here](https://github.com/jazzsaxmafia/Weakly_detector).
+The demo video of what the CNN is looking is [here](https://www.youtube.com/watch?v=fZvOy0VXWAI). The reimplementation in tensorflow is [here](https://github.com/jazzsaxmafia/Weakly_detector). The pycaffe wrapper of CAM is reimplemented at [here](https://github.com/gcucurull/CAM-Python).
 
 ### Reference:
 ```
