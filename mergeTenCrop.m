@@ -22,8 +22,8 @@ for i = indices
     curCrop2 = permute(cropImgSet(end:-1:1,:,:,curr+5),[2 1 3 4]);
 
 
-    alignImgSet(i:i+cropSize-1, j:j+cropSize-1,:,curr) = curCrop1;
-    alignImgSet(i:i+cropSize-1, j:j+cropSize-1,:, curr+5) = curCrop2;
+    alignImgSet(j:j+cropSize-1, i:i+cropSize-1,:,curr) = curCrop1;
+    alignImgSet(j:j+cropSize-1, i:i+cropSize-1,:, curr+5) = curCrop2;
     
     curr = curr + 1;
 
