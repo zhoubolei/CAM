@@ -3,6 +3,7 @@
 datasetName = 'ILSVRCvalSet';
 load('imagenet_toolkit/ILSVRC2014_devkit/evaluation/cache_groundtruth.mat');
 load('imagenet_toolkit/ILSVRC2014_devkit/data/meta_clsloc.mat');
+% download the toolkit at http://www.image-net.org/challenges/LSVRC/2014/
 datasetPath = 'dataset/ILSVRC2012';
 load([datasetPath '/imageListVal.mat']);
 load('sizeImg_ILSVRC2014.mat');
@@ -138,7 +139,7 @@ parfor i=1:size(imageList,1)
 end
 
 
-addpath('imagenet_toolkit/ILSVRC2014_devkit/evaluation');
+addpath('evaluation');
 disp([netName '--------bbox1' ]);
 [cls_error, clsloc_error] = simpleEvaluation(predictionResult_bbox1);
 disp([(1:5)',clsloc_error,cls_error]);
