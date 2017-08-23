@@ -7,7 +7,13 @@ The framework of the Class Activation Mapping is as below:
 Some predicted class activation maps are:
 ![Results](http://cnnlocalization.csail.mit.edu/example.jpg)
 
-### Pre-trained models:
+### NEW: PyTorch Demo code
+* The popular networks such as ResNet, DenseNet, SqueezeNet, Inception already have global average pooling at the end, so you could generate the heatmap directly without even modifying the network architecture. Here is a [sample script](pytorch_CAM.py) to generate CAM for the pretrained networks.
+```
+    python pytorch_CAM.py
+```
+
+### Pre-trained models in Caffe:
 * GoogLeNet-CAM model on ImageNet: ```models/deploy_googlenetCAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/imagenet_googleletCAM_train_iter_120000.caffemodel]
 * VGG16-CAM model on ImageNet: ```models/deploy_vgg16CAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/vgg16CAM_train_iter_90000.caffemodel]
 * GoogLeNet-CAM model on Places205: ```models/deploy_googlenetCAM_places205.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/places_googleletCAM_train_iter_120000.caffemodel]
