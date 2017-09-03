@@ -12,6 +12,7 @@ Some predicted class activation maps are:
 ```
     python pytorch_CAM.py
 ```
+You also could take a look at the [unified PlacesCNN scene prediction code](https://github.com/CSAILVision/places365/blob/master/run_placesCNN_unified.py) to see how the CAM along with scene categories, scene attributes are predicted.
 
 ### Pre-trained models in Caffe:
 * GoogLeNet-CAM model on ImageNet: ```models/deploy_googlenetCAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/imagenet_googlenetCAM_train_iter_120000.caffemodel]
