@@ -12,7 +12,7 @@ Some predicted class activation maps are:
 ```
     python pytorch_CAM.py
 ```
-You also could take a look at the [unified PlacesCNN scene prediction code](https://github.com/CSAILVision/places365/blob/master/run_placesCNN_unified.py) to see how the CAM along with scene categories, scene attributes are predicted.
+You also could take a look at the [unified PlacesCNN scene prediction code](https://github.com/CSAILVision/places365/blob/master/run_placesCNN_unified.py) to see how the CAM along with scene categories, scene attributes are predicted. It has been used in the [PlacesCNN scene recognition demo](http://places2.csail.mit.edu/demo.html).
 
 ### Pre-trained models in Caffe:
 * GoogLeNet-CAM model on ImageNet: ```models/deploy_googlenetCAM.prototxt``` weights:[http://cnnlocalization.csail.mit.edu/demoCAM/models/imagenet_googlenetCAM_train_iter_120000.caffemodel]
@@ -42,6 +42,11 @@ generate_bbox
 ```
 
 The demo video of what the CNN is looking is [here](https://www.youtube.com/watch?v=fZvOy0VXWAI). The reimplementation in tensorflow is [here](https://github.com/jazzsaxmafia/Weakly_detector). The pycaffe wrapper of CAM is reimplemented at [here](https://github.com/gcucurull/CAM-Python).
+
+### ILSVRC evaluation
+
+* See the script [ILSVRC_evaluate_bbox.m](ILSVRC_evaluate_bbox.m) and [ILSVRC_generate_heatmap.m](ILSVRC_generate_heatmap.m) if you want to reproduce the ILSVRC localizatgion result. Also see [this file](http://cnnlocalization.csail.mit.edu/ILSVRC_evaluation_raw.tar.gz) for some intermedate files. You still need to download the ILSVRC toolkit at http://image-net.org/challenges/LSVRC/2012/. The code is written in a rush and without any clean-up, Please figure out how to set up things
+  properly by yourself.
 
 ### Reference:
 ```
