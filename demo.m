@@ -3,10 +3,11 @@
 % for the online prediction, make sure you have complied matcaffe
 
 clear
-addpath('/xxx/yyy/caffe/matlab');
+addpath('/opt/caffe/matlab');
 
 imgID = 2; % 1 or 2
 img = imread(['img' num2str(imgID) '.jpg']);
+
 img = imresize(img, [256 256]);
 online = 0; % whether extract features online or load pre-extracted features
 
@@ -14,8 +15,8 @@ load('categories1000.mat');
 if online == 1
     % load the CAM model and extract features
 
-    net_weights = ['models/imagenet_googleletCAM_train_iter_120000.caffemodel'];
-    net_model = ['models/deploy_googlenetCAM.prototxt'];
+    net_weights = ['models/imagenet_googlenetCAM_train_iter_120000.caffemodel'];
+    net_model = ['models/deploy_googlenetCAM_imagenet.prototxt'];
     net = caffe.Net(net_model, net_weights, 'test');    
     
     weights_LR = net.params('CAM_fc',1).get_data();% get the softmax layer of the network
@@ -53,6 +54,8 @@ for j=1:topNum
     curPrediction = [curPrediction ' --top'  num2str(j) ':' categories{IDX_category(j)}];
     
 end
+disp(curPrediction);
+imwrite(curResult, 'result.jpg');
 figure,imshow(curResult);
 title(curPrediction)
 
