@@ -44,7 +44,7 @@ def returnCAM(feature_conv, weight_softmax, class_idx):
     bz, nc, h, w = feature_conv.shape
     output_cam = []
     for idx in class_idx:
-        cam = weight_softmax[class_idx].dot(feature_conv.reshape((nc, h*w)))
+        cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h*w)))
         cam = cam.reshape(h, w)
         cam = cam - np.min(cam)
         cam_img = cam / np.max(cam)
