@@ -8,6 +8,7 @@ from torch.autograd import Variable
 from torch.nn import functional as F
 import numpy as np
 import cv2
+import pdb
 
 # input image
 LABELS_URL = 'https://s3.amazonaws.com/outcome-blog/imagenet/labels.json'
@@ -58,7 +59,7 @@ normalize = transforms.Normalize(
    std=[0.229, 0.224, 0.225]
 )
 preprocess = transforms.Compose([
-   transforms.Scale((224,224)),
+   transforms.Resize((224,224)),
    transforms.ToTensor(),
    normalize
 ])
@@ -75,8 +76,10 @@ logit = net(img_variable)
 classes = {int(key):value for (key, value)
           in requests.get(LABELS_URL).json().items()}
 
-h_x = F.softmax(logit).data.squeeze()
+h_x = F.softmax(logit, dim=1).data.squeeze()
 probs, idx = h_x.sort(0, True)
+probs = probs.numpy()
+idx = idx.numpy()
 
 # output the prediction
 for i in range(0, 5):
