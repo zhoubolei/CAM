@@ -1,18 +1,18 @@
 # simple implementation of CAM in PyTorch for the networks such as ResNet, DenseNet, SqueezeNet, Inception
+# last update by BZ, June 30, 2021
 
 import io
-import requests
 from PIL import Image
 from torchvision import models, transforms
 from torch.autograd import Variable
 from torch.nn import functional as F
 import numpy as np
 import cv2
-import pdb
+import json
 
 # input image
-LABELS_URL = 'https://s3.amazonaws.com/outcome-blog/imagenet/labels.json'
-IMG_URL = 'http://media.mlive.com/news_impact/photo/9933031-large.jpg'
+LABELS_file = 'imagenet-simple-labels.json'
+image_file = 'test.jpg'
 
 # networks such as googlenet, resnet, densenet already use global average pooling at the end, so CAM could be used directly.
 model_id = 1
@@ -64,17 +64,16 @@ preprocess = transforms.Compose([
    normalize
 ])
 
-response = requests.get(IMG_URL)
-img_pil = Image.open(io.BytesIO(response.content))
-img_pil.save('test.jpg')
-
+# load test image
+img_pil = Image.open(image_file)
 img_tensor = preprocess(img_pil)
 img_variable = Variable(img_tensor.unsqueeze(0))
 logit = net(img_variable)
 
-# download the imagenet category list
-classes = {int(key):value for (key, value)
-          in requests.get(LABELS_URL).json().items()}
+# load the imagenet category list
+with open(LABELS_file) as f:
+    classes = json.load(f)
+
 
 h_x = F.softmax(logit, dim=1).data.squeeze()
 probs, idx = h_x.sort(0, True)
