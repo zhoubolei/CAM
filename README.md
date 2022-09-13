@@ -64,4 +64,9 @@ The demo video of what the CNN is looking is [here](https://www.youtube.com/watc
 The pre-trained models and the CAM technique are released for unrestricted use.
 
 Contact [Bolei Zhou](http://people.csail.mit.edu/bzhou/) if you have questions.
+
+### Video Tutorials(Chinese)
+- CAM algorithm quick view: https://www.bilibili.com/video/BV1Ke411g7gm
+- CAM paper reading sentence by sentence: https://www.bilibili.com/video/BV1fe4y1C7mN
+- Explainable AI series: https://readpaper.com/user/collect/638623946528292864
     
